@@ -43,7 +43,7 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Role> roleList = new LinkedList<>();
+    private Set<Role> roleList = new LinkedHashSet<>();
 
     public User() {
     }
@@ -60,11 +60,11 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public List<Role> getRoleList() {
+    public Set<Role> getRoleList() {
         return roleList;
     }
 
-    public void setRoleList(List<Role> roleSet) {
+    public void setRoleList(Set<Role> roleSet) {
         this.roleList = roleSet;
     }
 
